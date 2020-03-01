@@ -72,11 +72,10 @@ app.post('/sort', (req, res) => {
 
     pool.connect()
     .then(() => {
-        const query = 'select * from users order by $1 $2';
-        const params = [by, how];
-        return pool.query(query, params);
+        const query = `select * from users order by ${by} ${how}`;
+        return pool.query(query);
     })
-    .then((result) => {
+    .then((results) => {
         console.log('results: ', results);
         res.render('viewUsers', { results })
     })
