@@ -66,6 +66,26 @@ app.get('/users', (req, res) => {
     })
 })
 
+app.post('/sort', (req, res) => {
+    const how = req.body.sortMethod;
+    const by = req.body.sortBy;
+
+    pool.connect()
+    .then(() => {
+        const query = 'select * from users order by $1 $2';
+        const params = [by, how];
+        return pool.query(query, params);
+    })
+    .then((result) => {
+        console.log('results: ', results);
+        res.render('viewUsers', { results })
+    })
+    .catch((err) => {
+        console.log('err:', err);
+        res.redirect('/');
+    })
+})
+
 app.get('/edit/:id', (req, res) => {
     const id = req.params.id;
     // const client = new Client({
