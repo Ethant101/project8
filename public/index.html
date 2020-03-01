@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F1790157%2Fgold_golden_rank_star_icon&psig=AOvVaw1ap5S5R7kKJIqqO9JfE0ZL&ust=1581555673734000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiZ4JPoyucCFQAAAAAdAAAAABAD">
+    <title>Home</title>
+</head>
+<body>
+    <h1>User App</h1>
+    <a href='/users' method="post">Get Users</a>
+    <a href='/search'>Search</a>
+
+    <form action='/users' method="post">
+        <input type="text" name="first" id="first" placeholder="first name">
+        <input type="text" name="last" id="last" placeholder="last name">
+        <input type='email' name='email' id='email' placeholder="email">
+        <input type="number" name="age" id="age" placeholder="age">
+        <input type="submit" name="submit" id="submit" value="Add User">
+    </form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+html
+head
+    style(
+        tr, th, td {
+            border: 1px solid black;
+        }   
+    )
+head
+body
+    form(action="/sort" method="post")
+        label(for="sortMethod") Sort: 
+        select(name="sortMethod" id="sortMethod")
+            option(name="ascending" id='ascending' value="ascending") ascending
+            option(name="descending" id='descending' value="descending") descending
+        label(for="sortBy") by:
+        select(name="sortBy" id="sortBy")
+            option(name="first" id='first' value="first") first
+            option(name="last" id='last' value="last") last
+        input(type="submit" value="sort")
+    table(style="border:2px solid black")
+        tr
+            th First
+            th Last
+            th email
+            th Age
+            th edit
+            th delete
+            th(style="display:none;") id
+        each user in results.rows
+            tr(style="border:1px solid black;")
+                td #{user.first}
+                td #{user.last}
+                td #{user.email}
+                td #{user.age}
+                td
+                    a(href='edit/' + user.id) edit
+                td
+                    form(action="/delete/" + user.id method="post")
+                        input(type='submit' value='delete')
+                //- need to bring in the id that studio3t makes
+
+    a(href='/') return to home
+
+        

@@ -1,0 +1,36 @@
+html
+head
+    title search Results
+    style(
+        tr, th, td {
+            border: 1px solid black;
+        }   
+    )
+head
+body
+    h1 Search Results
+    table(style="border:2px solid black; border-collapse:collapse")
+        tr
+            th First
+            th Last
+            th email
+            th Age
+            th edit
+            th delete
+            th(style="display:none;") id
+        each user in results.rows
+            tr(style="border:1px solid black;")
+                td #{user.first}
+                td #{user.last}
+                td #{user.email}
+                td #{user.age}
+                td
+                    a(href='edit/' + user.id) edit
+                td
+                    form(action="/delete/" + user.id method="post")
+                        input(type='submit' value='delete')
+                //- need to bring in the id that studio3t makes
+
+    a(href='/') return to home
+
+        

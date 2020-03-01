@@ -1,0 +1,14 @@
+html
+    head
+        title Edit
+    body
+        h1 Edit User
+        each user in results.rows
+            form(action='/edit' method='post')
+                input(type="text" name="first" id="first" placeholder="first name" value= user.first)
+                input(type="text" name="last" id="last" placeholder="last name" value= user.last) 
+                input(type='email' name='email' id='email' placeholder="email" value= user.email) 
+                input(type="number" name="age" id="age" placeholder="age" value= user.age) 
+                input(type='text' name='id' id='id' value= user.id style="display:none;")
+                input(type="submit" name="submit" id="submit" value="Confirm Changes")
+        a(href='/') return to home
